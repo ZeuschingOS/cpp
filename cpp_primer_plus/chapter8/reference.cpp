@@ -24,7 +24,8 @@ int main()
     printr(ra);
     ra = c;
     printr(ra);
-
+    int *pr = &ra;
+    printp(pr);
     int *p = &a;
     printp(p);
     p = &b;
