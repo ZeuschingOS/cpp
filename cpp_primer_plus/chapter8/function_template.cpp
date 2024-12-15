@@ -12,6 +12,17 @@ T add(T a, T b, int c)
 {
     return a + b + c;
 }
+struct job
+{
+    char name[10];
+    int salary;
+    int floor;
+};
+
+template <> int add(struct job a, struct job b)
+{
+    return a.salary + b.salary;
+}
 int main()
 {
     int a = 10;
@@ -23,5 +34,8 @@ int main()
     cout << "a + c = " << add(a, c) << endl;
     cout << "aa + bb = " << add(aa, bb) << endl;
     cout << "a + b + c = " << add(a, b, 10) << endl;
+    struct job andy = {"andy", 10, 20};
+    struct job bob = {"bob", 30, 40};
+    cout << "andy + bob = " << add(andy, bob) << endl;
     return 0;
 }
