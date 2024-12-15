@@ -6,6 +6,12 @@ T1 add(T1 a, T2 b)
 {
     return a + b;
 }
+
+template <typename T>
+T add(T a, T b, int c)
+{
+    return a + b + c;
+}
 int main()
 {
     int a = 10;
@@ -16,5 +22,6 @@ int main()
     cout << "a + b = " << add(a, b) << endl;
     cout << "a + c = " << add(a, c) << endl;
     cout << "aa + bb = " << add(aa, bb) << endl;
+    cout << "a + b + c = " << add(a, b, 10) << endl;
     return 0;
 }
