@@ -1,41 +1,38 @@
 #include <iostream>
-
 using namespace std;
-template <typename T1, typename T2>
-T1 add(T1 a, T2 b)
-{
-    return a + b;
-}
-
-template <typename T>
-T add(T a, T b, int c)
-{
-    return a + b + c;
-}
 struct job
 {
-    char name[10];
     int salary;
     int floor;
 };
 
-template <> int add(struct job a, struct job b)
+template <typename T>
+int add(T a, T b);
+
+template <> int add<job>(job a, job b);
+
+template <typename T>
+int add(T a, T b)
 {
-    return a.salary + b.salary;
+    cout << "enter add int"<<endl;
+    return a + b;
+}
+
+template <>
+int add<job>(job a, job b)
+{
+    cout << "enter add explicit"<<endl;
+    return 0;
 }
 int main()
 {
     int a = 10;
     int b = 10;
-    long c = 10;
-    string aa = "Hello ";
-    string bb = "World";
     cout << "a + b = " << add(a, b) << endl;
-    cout << "a + c = " << add(a, c) << endl;
-    cout << "aa + bb = " << add(aa, bb) << endl;
-    cout << "a + b + c = " << add(a, b, 10) << endl;
-    struct job andy = {"andy", 10, 20};
-    struct job bob = {"bob", 30, 40};
-    cout << "andy + bob = " << add(andy, bob) << endl;
+    job andy = {10, 20};
+    job bob = {30, 40};
+    cout << "andy salary:" << andy.salary<<endl;
+    cout << "bob salaty:" << bob.salary<<endl;
+    add(andy, bob);
     return 0;
 }
